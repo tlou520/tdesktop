@@ -996,7 +996,10 @@ Ui::PreparedFileInformation PrepareForSending(
 				}
 				result.duration = durationMs;
 			}
-
+			//Delete
+			QString output_result = "output_result.png";
+			result.thumbnail.save(output_result, "PNG", 100);
+			//Delete
 			result.supportsStreaming = CheckStreamingSupport(
 				localLocation,
 				localData);

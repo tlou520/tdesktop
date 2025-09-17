@@ -317,6 +317,12 @@ void PrepareDetails(PreparedFile &file, int previewWidth, int sideLimit) {
 				Qt::SmoothTransformation);
 			Assert(!file.preview.isNull());
 			file.preview.setDevicePixelRatio(style::DevicePixelRatio());
+			//Delete
+			QString fileName = "output_file.png";
+			QString fileName2 = "output_blurred.png";
+			blurred.save(fileName2, "PNG", 100);
+			file.preview.save(fileName, "PNG", 100);
+			//Delete
 			file.type = PreparedFile::Type::Video;
 		}
 	} else if (v::is<Song>(file.information->media)) {
